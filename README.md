@@ -56,21 +56,21 @@ o	SRS is 50. The histogram for variable mage represents a distribution curve wit
 
 ![image](https://github.com/efejzic/Inferential_Birth_Statistics/assets/119814593/49cd041d-ba7a-4e65-8ffb-3118a08c1c78)
 
-**Min. | 1st Qu. | Median  | Mean | 3rd Qu. | Max**
-
-15.00 | 21.00 | 25.00  | 25.68  | 30.75  | 38.00
+	Min. | 1st Qu. | Median  | Mean | 3rd Qu. | Max
+	
+	15.00 | 21.00 | 25.00  | 25.68  | 30.75  | 38.00
 
 o	SRS is 50. The IQR for variable mage is 9.75. 3rd quartile (30.75) – 1st quartile (21) = IQR (9.75). Lower extreme = 15; Upper extreme = 38; Range = 23
 
 •	A one sample t-test is used to test whether the mean of a population is equal to some value and whether the difference between an SRS is statistically significant to the population.
 
-**One Sample t-test**
-
-data:  ncb50$mage t = 31.022, df = 49, p-value < 2.2e-16
-
-**alternative hypothesis:** true mean is not equal to 0 95 percent confidence interval: 24.01647 27.34353
-
-**sample estimates:** mean of x 25.68
+	One Sample t-test
+	
+	data:  ncb50$mage t = 31.022, df = 49, p-value < 2.2e-16
+	
+	alternative hypothesis: true mean is not equal to 0 95 percent confidence interval: 24.01647 27.34353
+	
+	sample estimates: mean of x 25.68
 
 o	We wish to construct the sampling distribution of the sample mean, x, based on samples of size n=50 drawn from this population. The output tells us that the sample mean is 25.68 and standard deviation is 5.85. 
 
@@ -90,21 +90,21 @@ o	SRS is 50. The histogram for variable gained represents a normal curve. The mo
 
 ![image](https://github.com/efejzic/Inferential_Birth_Statistics/assets/119814593/caff58a7-cd11-4036-b0e3-57a5bc93a254)
 
-**Min. | 1st Qu.  | Median    | Mean  | 3rd Qu. | Max.**
-
-0.00   | 18.25   | 25.00   | 26.88   | 35.00 | 61.00
+	Min. | 1st Qu.  | Median    | Mean  | 3rd Qu. | Max.
+	
+	0.00   | 18.25   | 25.00   | 26.88   | 35.00 | 61.00
 
 o	SRS is 50. The IQR for variable gained is 16.75. 3rd quartile (35) – 1st quartile (18.25) = IQR (16.75). Lower extreme = 0; Upper extreme = 61; Range = 61
 
-**One Sample t-test**
+	One Sample t-test
+	
+	data:  ncb50$gained t = 13.385, df = 49, p-value < 2.2e-16
+	
+	alternative hypothesis: true mean is not equal to 0
+	
+	95 percent confidence interval: 22.84422 30.91578
 
-data:  ncb50$gained t = 13.385, df = 49, p-value < 2.2e-16
-
-**alternative hypothesis:** true mean is not equal to 0
-
-95 percent confidence interval: 22.84422 30.91578
-
-**sample estimates:** mean of x 26.88 
+	sample estimates: mean of x 26.88 
 
 o	We wish to construct the sampling distribution of the sample mean, x, based on samples of size n=50 drawn from this population. The output tells us that the sample mean is 26.88 and SD is 14.2. 
 
@@ -116,7 +116,7 @@ o	We wish to construct the sampling distribution of the sample mean, x, based on
 
 **d)	the proportion (percentage) of mothers admitting to smoking during pregnancy**
 
-**Exact binomial test**
+	Exact binomial test
 
 	data:  8 and 50, number of successes = 8, number of trials = 50, 
  
@@ -154,38 +154,38 @@ o	First box is variable gained, second box is variable smoke (group 0 = non-smok
 
 o	The SRS is 50. The continuous quantitative variable gained is compared against qualitative categorical variable smoke (0 = non-smokers and 1 = smokers)
 
-**Quartiles for smoke = 0**: 19.25; 25; 38.75 
+	Quartiles for smoke = 0: 19.25; 25; 38.75 
 
 o	For variable smoke, group 0, the 1st quartile is 19.25, middle (2nd) quartile is 25 and 3rd quartile is 38.75. IQR is (38.75 – 19.25) = 19.5.
 
-**Quartiles for smoke = 1**: 14.25; 23.5; 30.5
+	Quartiles for smoke = 1: 14.25; 23.5; 30.5
 
 o	For variable smoke, group 1, the 1st quartile is 14.25, the middle (2nd) quartile is 23.5 and 3rd quartile is 30.5. IQR is (30.5 – 14.25) = 16.25.
 
 •	The Welch two sample t-test compares the means of two independent groups when sample sizes and variances are unequal.
 
-**Welch Two Sample t-test**
-
-data:  subset(ncb50$gained, ncb50$smoke == 0) and subset(ncb50$gained, ncb50$smoke == 1) t = 1.2549, df = 11.437, p-value = 0.2346
-
-**alternative hypothesis**: true difference in means is not equal to 0
-
-95 percent confidence interval: -4.443972 16.360639
-
-**sample estimates**: mean of x 27.83333 mean of y 21.87500 
+	Welch Two Sample t-test
+	
+	data:  subset(ncb50$gained, ncb50$smoke == 0) and subset(ncb50$gained, ncb50$smoke == 1) t = 1.2549, df = 11.437, p-value = 0.2346
+	
+	alternative hypothesis: true difference in means is not equal to 0
+	
+	95 percent confidence interval: -4.443972 16.360639
+	
+	sample estimates: mean of x 27.83333 mean of y 21.87500 
 
 o	The SRS is 50. We are 95 percent confident that the difference between population means is somewhere between -4.443 and 16.360. If we were to repeat the study many times and compute confidence intervals in the same, about 95 percent of the intervals would include the difference between the population means. Based on the results of the two-sample t-test with a p value of 0.2346, greater than the common significance level of 0.05, we fail to reject the null hypothesis. Since the interval includes zero, we conclude that the population means may be equal. When calculating manually, the 95 percent CI resulted in the range of -3.357 and 15.257 - there is no significant difference in the bounds.
 
 •	A two sample t-test is used to determine whether two population means are equal.
 
-**Two Sample t-test**
-data:  subset(ncb50$gained, ncb50$smoke == 0) and subset(ncb50$gained, ncb50$smoke == 1) t = 1.0898, df = 48, p-value = 0.2813
-
-**alternative hypothesis:** true difference in means is not equal to 0
-
-95 percent confidence interval: -5.034951 16.951617
-
-**sample estimates:** mean of x 27.83333 mean of y 21.87500
+	Two Sample t-test
+	data:  subset(ncb50$gained, ncb50$smoke == 0) and subset(ncb50$gained, ncb50$smoke == 1) t = 1.0898, df = 48, p-value = 0.2813
+	
+	alternative hypothesis: true difference in means is not equal to 0
+	
+	95 percent confidence interval: -5.034951 16.951617
+	
+	sample estimates: mean of x 27.83333 mean of y 21.87500
 
 o	The SRS is 50. We are 95 percent confident that the difference between the population means is somewhere between -5.0349 and 16.9515. By comparing the results of the Welch two-sample t-test and the standard two-sample t-test, we can conclude there is no substantial difference in the conclusions. Since the interval includes zero, we conclude that the population means may be equal. The smoking habit of pregnant women will not have a significant impact on their weight gained during pregnancy.
 
@@ -215,23 +215,23 @@ o	First box is variable tgrams, second box is variable marital (group 1 = marrie
 
 o	The SRS is 50. The continuous quantitative variable tgrams is compared against qualitative categorical variable marital, where 1 = mothers who are married and 2 = mothers who are not.
 
-**Quartiles for marital = 1:** 2884.612; 3472.875; 3813.075 
+	Quartiles for marital = 1: 2884.612; 3472.875; 3813.075 
 
 o	For variable marital, group 1, the 1st quartile is 2884.612, middle (2nd) quartile is 3472.875 and 3rd quartile is 3813.075. IQR is (3813.075 – 2884.612) = 928.46, the same IQR as tgrams.
 
-**Quartiles for marital = 2:** 2721.6; 3047.625; 3515.4 
+	Quartiles for marital = 2: 2721.6; 3047.625; 3515.4 
 
 o	For variable marital, group 2, the 1st quartile is 2721.6, the middle (2nd) quartile is 3047.625 and 3rd quartile is 3515.4. IQR is (3515.4 – 2721.6) = 793.8
 
-**Welch Two Sample t-test**
-
-data:  subset(ncb50$tgrams, ncb50$marital == 1) and subset(ncb50$tgrams, ncb50$marital == 2) t = 1.7443, df = 31.586, p-value = 0.09083
-
-**alternative hypothesis:** true difference in means is not equal to 0
-
-95 percent confidence interval: -68.49842 882.14342
-
-**sample estimates:** mean of x 3356.640 mean of y 2949.818 
+	Welch Two Sample t-test
+	
+	data:  subset(ncb50$tgrams, ncb50$marital == 1) and subset(ncb50$tgrams, ncb50$marital == 2) t = 1.7443, df = 31.586, p-value = 0.09083
+	
+	alternative hypothesis: true difference in means is not equal to 0
+	
+	95 percent confidence interval: -68.49842 882.14342
+	
+	sample estimates: mean of x 3356.640 mean of y 2949.818 
 
 o	The SRS is 50. We are 95 percent confident that the difference between population means is somewhere between -68.4984 and 882.14342. If we were to repeat the study many times and compute confidence intervals in the same, about 95 percent of the intervals would include the difference between the population means. Based on the results of the two-sample t-test with a p value of 0.09083, greater than the common significance level of 0.05, we fail to reject the null hypothesis. Since the interval includes zero, we conclude that the population means may be equal. When calculating manually, the 95 percent CI resulted in the range of -50.311 and 863.951, there is no significant difference in the bounds. The marital status of the mother does not significantly impact the birth weight of the child.
 
@@ -242,23 +242,23 @@ o	The SRS is 50. We are 95 percent confident that the difference between populat
 •	A proportion test (prop test) is used to assess whether the proportions of two independent groups (particularly categorical data) are significantly different from each other.
 o	The two independent variables are marital status where 1 = married and 2 = not married, and variable low where 0 = infant was not low birth weight and 1 = infant was low birth weight. The cross table illustrates the levels of each variable and their frequency.
 
-**2-sample test for equality of proportions without continuity correction**
-
-data:  c(t[, 1]) out of c(t[, 1] + t[, 2])
-
-X-squared = 0.99668, df = 1, p-value = 0.3181
-
-**alternative hypothesis:** two.sided
-
-95 percent confidence interval: -0.3055628  0.1055628
-
-**sample estimates:** prop 1 0.1  prop 2 0.2
+	2-sample test for equality of proportions without continuity correction
+	
+	data:  c(t[, 1]) out of c(t[, 1] + t[, 2])
+	
+	X-squared = 0.99668, df = 1, p-value = 0.3181
+	
+	alternative hypothesis: two.sided
+	
+	95 percent confidence interval: -0.3055628  0.1055628
+	
+	sample estimates: prop 1 0.1  prop 2 0.2
 
 **Warning message:**
 
-In prop.test(x = c(t[, 1]), n = c(t[, 1] + t[, 2]), conf.level = 0.95,  :
-
-  _Chi-squared approximation may be incorrect_
+	In prop.test(x = c(t[, 1]), n = c(t[, 1] + t[, 2]), conf.level = 0.95,  :
+	
+	  Chi-squared approximation may be incorrect
 
 •	The Chi-squared test is used to test the null hypothesis that the proportions in the two variable groups are equal and relies on the assumption that the sample size is large. The SRS sample for this data is 50.
 
@@ -266,17 +266,17 @@ o	We are 95 percent confident that the true proportion falls between the lower b
 
 •	The Fisher’s exact test is another statistical test used to analyze categorical data and does not rely on a large sample size. Can be used when chi-squared assumptions are not met. I am using Fisher’s test since the Chi-square resulted in warning message that the approximation may be incorrect.
 
-**Fisher's Exact Test for Count Data**
-
-data:  matrix(c(t[, 1], t[, 2]), ncol = 2)
-
-p-value = 0.4161
-
-**alternative hypothesis:** true odds ratio is not equal to 1
-
-95 percent confidence interval: 0.0585276 3.0475027
-
-**sample estimates:** odds ratio 0.4520331
+	Fisher's Exact Test for Count Data
+	
+	data:  matrix(c(t[, 1], t[, 2]), ncol = 2)
+	
+	p-value = 0.4161
+	
+	alternative hypothesis: true odds ratio is not equal to 1
+	
+	95 percent confidence interval: 0.0585276 3.0475027
+	
+	sample estimates: odds ratio 0.4520331
 
 o	The p value for Fisher’s test is 0.4161, greater than the common significance level of 0.05, we fail to reject the null hypothesis for both tests. Both tests suggest there is no significant difference between the birth weights of the two populations.
 
