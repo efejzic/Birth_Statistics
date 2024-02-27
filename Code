@@ -1,1 +1,188 @@
+Data
+
+> NCBIRTH800 <- read_excel("C:/Users/efejz/Downloads/NCBIRTH800.xlsx")
+
+> ncb <- NCBIRTH800 %>% slice_sample(replace=FALSE, n=50)
+
+> view(ncb)
+
+> ncb50 <-ncb %>% select(sex,mage,gained,smoke,tgrams,marital,low)
+
+> view(ncb50)
+
+> write.xlsx(ncb50, "C:/Users/efejz/Documents/folder/ncb50.xlsx")
+
+a)	the proportion (percentage) of male children 
+
+Frequency Table
+
+> frequency_table <- table(ncb50$sex)
+
+> print(frequency_table)
+
+	1  2 
+
+	22 28
+
+Exact Binomial test
+
+> binom.test(22,50, alternative="two.sided", conf.level=0.95)
+
+b)	the mean age of a mother giving birth 
+
+> describe(ncb50$mage, IQR=TRUE)
+
+Histogram
+
+> hist(ncb50$mage, main = "Histogram for MAGE", xlab = "MAGE")
+
+Boxplot 
+
+> boxplot(ncb50$mage, xlab="Boxplot of MAGE", ylab="MAGE")
+
+> x = (ncb50$mage)
+
+> summary(x)
+
+One-Sample T-test
+
+> t.test(ncb50$mage)
+
+c)	the mean weight gained during pregnancy 
+
+Descriptive Stats
+
+> describe(ncb50$gained, IQR=TRUE)
+
+Histogram
+
+> hist(ncb50$gained, main = "Histogram for GAINED", xlab = "GAINED")
+
+Boxplot
+
+> boxplot(ncb50$gained, xlab="Boxplot of GAINED", ylab="GAINED")
+
+Summary
+
+> x=(ncb50$gained)
+
+> summary(x) 
+
+One-sample T-test
+
+> t.test(ncb50$gained)
+
+d)	the proportion (percentage) of mothers admitting to smoking during pregnancy 
+
+> frequency_table <-table(ncb50$smoke)
+
+> print(frequency_table)
+
+0   1
+
+42  8 
+
+> binom.test(8,50, alternative="two.sided", conf.level=0.95)
+
+e)	the difference in the average weight gained between smoking and nonsmoking mothers 
+
+Descriptive Stats
+
+> describe(ncb50$gained, IQR=TRUE)
+
+> describeBy(ncb50$gained, group=ncb50$smoke, IQR=TRUE)
+
+Boxplot for gained by smoke 
+
+> boxplot(main= "Boxplot for GAINED by Smoke",ncb50$gained,subset(ncb50$gained,ncb50$smoke==0),subset(ncb50$gained,ncb50$smoke==1))
+
+> boxplot(gained ~ smoke, data = ncb50,
++         main = "Boxplot for Gained by Smoke",
++         xlab = "Smoke (0 = Non-Smokers, 1 = Smokers)",
++         ylab = "Gained")
+
+Quartiles
+
+> quantiles_by_smoke_0 <- quantile(ncb50$gained[ncb50$smoke == 0], c(0.25, 0.5, 0.75))
+
+> quantiles_by_smoke_1 <- quantile(ncb50$gained[ncb50$smoke == 1], c(0.25, 0.5, 0.75))
+
+> cat("Quartiles for smoke = 0:", quantiles_by_smoke_0, "\n")
+
+Quartiles for smoke = 0: 19.25; 25; 38.75 
+
+> cat("Quartiles for smoke = 1:", quantiles_by_smoke_1, "\n")
+
+Quartiles for smoke = 1: 14.25; 23.5; 30.5
+
+Welch Two Sample T-Test
+
+> t.test(subset(ncb50$gained,ncb50$smoke==0),subset(ncb50$gained,ncb50$smoke==1))
+
+Two-sample t-test
+
+> t.test(subset(ncb50$gained,ncb50$smoke==0),subset(ncb50$gained,ncb50$smoke==1),var.equal = TRUE)
+
+f)	the difference in the average birth weight in grams between married and nonmarried mothers 
+
+Descriptive Stats
+
+> describe(ncb50$tgrams, IQR=TRUE)
+
+> describeBy(ncb50$tgrams, IQR=TRUE, ncb50$marital)
+
+Boxplot for tgrams by marital
+
+> boxplot(main= "Boxplot for TGRAMS by Marital",ncb50$tgrams,subset(ncb50$tgrams,ncb50$marital==1),subset(ncb50$tgrams,ncb50$marital==2))
+
+> boxplot(tgrams ~ marital, data = ncb50,
++         main = "Boxplot for Tgrams by Marital",
++         xlab = "Marital (1 = Married, 2 = Not Married)”,
++         ylab = "Tgrams")
+
+Quartiles
+
+> quantiles_by_marital_1 <- quantile(ncb50$tgrams[ncb50$marital == 1], c(0.25, 0.5, 0.75))
+
+> quantiles_by_marital_2 <- quantile(ncb50$tgrams[ncb50$marital == 2], c(0.25, 0.5, 0.75))
+
+> cat("Quartiles for marital = 1:", quantiles_by_marital_1, "\n")
+
+Quartiles for marital = 1: 2884.612; 3472.875; 3813.075 
+
+> cat("Quartiles for marital = 2:", quantiles_by_marital_2, "\n")
+
+Quartiles for marital = 2: 2721.6; 3047.625; 3515.4 
+
+**Welch Two sample t-test**
+
+> t.test(subset(ncb50$tgrams,ncb50$marital==1),subset(ncb50$tgrams,ncb50$marital==2)) 
+
+g)	the difference in the proportion (percentage) of low-birth-weight babies between married and nonmarried mothers
+
+**Cross table**
+
+> library(gmodels)
+> CrossTable(ncb50$low,ncb50$marital)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
